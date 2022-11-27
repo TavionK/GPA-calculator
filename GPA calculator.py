@@ -70,10 +70,11 @@ while ans =='Y' or ans =='y':
     Grades.clear()
     QPList.clear()
     ans= input("Would you like to calculate another term's GPA? Enter Y/N:")
-
+ans
 overallQual = sum(overallQualPoints)
 overallCred = sum(overallCreds)
-finalGPA = FinalGPAcalc(overallQual,overallCred)
-print("Your overall total credits are", overallCred)
-print("Your overall GPA: ", finalGPA)
+if (overallQual != 0):
+    finalGPA = FinalGPAcalc(overallQual,overallCred)
+    print("Your overall total credits are", overallCred)
+    print("Your overall GPA: ", finalGPA)
 print("Thanks for using the software!")
