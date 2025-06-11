@@ -14,6 +14,8 @@ def final_gpa_calc(overall_qual, overall_cred):
     final_gpa = ('%.2f' % final_gpa)
     return final_gpa
 
+# todo make this a dictionary
+# todo make all inputs to uppercase
 def quality_calc(num_cred, grade):
     if grade== 'A':
         class_quality_points = 4.00 * num_cred
@@ -62,7 +64,8 @@ while ans =='Y' or ans =='y':
     print("%-10s %-10s %-10s %-15s" %("Course","Credits","Grade","Quality Points"))
     for i in range(0,len(NumberOfCreds)):
         print("%-10s %-10s %-10s %-15s" %(NameOfCourses[i],NumberOfCreds[i],Grades[i],QPList[i]))
-        
+
+    # todo look into these variables being undefined
     print("Total credits for this term:", totalCred)
     print("You earned", totalQual, "total quality points and a GPA of", GPA, "for the semester.")
     NameOfCourses.clear()
