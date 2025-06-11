@@ -4,46 +4,46 @@ QPList = []
 NameOfCourses = []
 overallCreds=[]
 overallQualPoints=[]
-def gpa_calc(qualityPoints, creditHours):
-    GPA = totalQual/totalCred
-    GPA = ('%.2f' % GPA)
-    return GPA
+def gpa_calc(quality_points, credit_hours):
+    semester_gpa = quality_points/credit_hours
+    semester_gpa = ('%.2f' % semester_gpa)
+    return semester_gpa
 
-def final_gpa_calc(overallQual, overallCred):
-    GPA = overallQual/overallCred
-    GPA = ('%.2f' % GPA)
-    return GPA
+def final_gpa_calc(overall_qual, overall_cred):
+    final_gpa = overall_qual / overall_cred
+    final_gpa = ('%.2f' % final_gpa)
+    return final_gpa
 
-def quality_calc(numCred, Grade):
-    if (Grade=='A'):
-        qualitypoint =4.00*numCred
-    elif (Grade=='A-'):
-        qualitypoint = 3.70*numCred
-    elif (Grade=='B+'):
-        qualitypoint =3.30*numCred
-    elif (Grade=='B'):
-        qualitypoint =3.00*numCred
-    elif (Grade=='B-'):
-        qualitypoint =2.70*numCred
-    elif (Grade=='C+'):
-        qualitypoint =2.30*numCred
-    elif (Grade=='C'):
-        qualitypoint =2.00*numCred
-    elif (Grade=='C-'):
-        qualitypoint=1.70*numCred
-    elif (Grade=='D+'):
-        qualitypoint =1.30*numCred
-    elif (Grade=='D'):
-        qualitypoint=1.00*numCred
+def quality_calc(num_cred, grade):
+    if grade== 'A':
+        class_quality_points = 4.00 * num_cred
+    elif grade == 'A-':
+        class_quality_points = 3.70 * num_cred
+    elif grade == 'B+':
+        class_quality_points = 3.30 * num_cred
+    elif grade == 'B':
+        class_quality_points = 3.00 * num_cred
+    elif grade == 'B-':
+        class_quality_points = 2.70 * num_cred
+    elif grade == 'C+':
+        class_quality_points = 2.30 * num_cred
+    elif grade == 'C':
+        class_quality_points = 2.00 * num_cred
+    elif grade == 'C-':
+        class_quality_points= 1.70 * num_cred
+    elif grade == 'D+':
+        class_quality_points = 1.30 * num_cred
+    elif grade == 'D':
+        class_quality_points= 1.00 * num_cred
     else:
-        qualitypoint = 0.0
-    return qualitypoint
+        class_quality_points = 0.0
+    return class_quality_points
 
 print('Welcome to the GPA calculator.')
 ans = input("Would you like to calculate your GPA for a semester? Enter Y/N:")
 while ans =='Y' or ans =='y':
-    Numcourses=int(input("How many courses did you take in the term:"))
-    for i in range(Numcourses):
+    num_courses=int(input("How many courses did you take in the term:"))
+    for i in range(num_courses):
         print("Enter the name of the course", i+1, ':', end=' ')
         courseName = input()
         NameOfCourses.append(courseName)
@@ -51,12 +51,12 @@ while ans =='Y' or ans =='y':
         NumberOfCreds.append(credit)
         Grade=input("Enter the grade for this course:")
         Grades.append(Grade)
-        qualitypoint=quality_calc(credit, Grade)
-        QPList.append(qualitypoint)
+        quality_point=quality_calc(credit, Grade)
+        QPList.append(quality_point)
         totalCred=sum(NumberOfCreds)
         totalQual=sum(QPList)
         overallCreds.append(credit)
-        overallQualPoints.append(qualitypoint)
+        overallQualPoints.append(quality_point)
         GPA= gpa_calc(totalQual, totalCred)
     print("This term you earned:")
     print("%-10s %-10s %-10s %-15s" %("Course","Credits","Grade","Quality Points"))
@@ -73,7 +73,7 @@ while ans =='Y' or ans =='y':
 
 overallQual = sum(overallQualPoints)
 overallCred = sum(overallCreds)
-if (overallQual != 0):
+if overallQual != 0:
     finalGPA = final_gpa_calc(overallQual, overallCred)
     print("Your overall total credits are", overallCred)
     print("Your overall GPA: ", finalGPA)
